@@ -28,13 +28,20 @@ public class FileSerializer<T> {
             path = FilePath;
         }
 
-        FileInputStream file = new FileInputStream(path);
-        ObjectInputStream in = new ObjectInputStream(file);
+        var file = new File(path);
+
+        if(!file.exists()){
+            file.createNewFile();
+            return null;
+        }
+
+        FileInputStream fileInputStream = new FileInputStream(file);
+        ObjectInputStream in = new ObjectInputStream(fileInputStream);
 
         var result = (T) in.readObject();
 
         in.close();
-        file.close();
+        fileInputStream.close();
 
         return result;
     }

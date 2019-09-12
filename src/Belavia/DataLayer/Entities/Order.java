@@ -1,16 +1,14 @@
 package Belavia.DataLayer.Entities;
 
-import Belavia.DataLayer.Entities.Cargo;
-import Belavia.DataLayer.Entities.Customer;
-import Belavia.DataLayer.Entities.Flight;
-import Belavia.DataLayer.Entities.FlightPrice;
+import Belavia.BusinessLogic.IPrintable;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Order implements Serializable {
-    public Order(Customer customer,
+public class Order implements Serializable, IPrintable {
+    public Order(int id,
+                 Customer customer,
                  Flight flight,
                  FlightPrice price,
                  ArrayList<Cargo> cargo){
@@ -18,15 +16,27 @@ public class Order implements Serializable {
         this.Flight = flight;
         this.Price = price;
         this.Cargo = cargo;
+        this.Id = id;
+        this.TimePlaced = new Date();
     }
 
-
-    public Order(Flight flight,
+    public Order(int id,
+                 Flight flight,
                  FlightPrice price,
                  ArrayList<Cargo> cargo){
         this.Flight = flight;
         this.Price = price;
         this.Cargo = cargo;
+        this.TimePlaced = new Date();
+        this.Id = id;
+    }
+
+    public Order(int id,
+                 Flight flight,
+                 FlightPrice price){
+        this.Flight = flight;
+        this.Price = price;
+        this.Id = id;
     }
 
     private int Id;
@@ -78,7 +88,7 @@ public class Order implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj.getClass().getCanonicalName() != this.getClass().getCanonicalName()){
+        if(!obj.getClass().getCanonicalName().equals(this.getClass().getCanonicalName())){
             return false;
         }
 
@@ -91,5 +101,25 @@ public class Order implements Serializable {
 
     public void setTimePlaced(Date timePlaced) {
         TimePlaced = timePlaced;
+    }
+
+    @Override
+    public String GetPrintableMetadata() {
+        StringBuilder cargo = new StringBuilder();
+
+        if(Cargo != null){
+            for(var stuff: Cargo){
+                cargo.append(stuff.GetPrintableMetadata());
+            }
+        }
+
+        return  " Id: " + this.getId() + " Customer: " +
+                this.Customer.GetPrintableMetadata() +
+                " Flight: " +
+                this.Flight.GetPrintableMetadata() +
+                " TimePlaced: " +
+                this.TimePlaced.toString() +
+                " Customer's cargo: " +
+                ((cargo.toString().equals("")) ? "Empty": cargo.toString());
     }
 }

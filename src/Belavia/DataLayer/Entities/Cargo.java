@@ -1,6 +1,10 @@
 package Belavia.DataLayer.Entities;
 
-public class Cargo {
+import Belavia.BusinessLogic.IPrintable;
+
+import java.io.Serializable;
+
+public class Cargo implements IPrintable, Serializable {
     public Cargo(int weight, String name){
         this.Weight = weight;
         this.Name = name;
@@ -23,5 +27,15 @@ public class Cargo {
 
     public void setName(String name) {
         Name = name;
+    }
+
+    @Override
+    public String GetPrintableMetadata() {
+        return " Weight: " + Weight + " Name: " + Name;
+    }
+
+    @Override
+    public String toString() {
+        return GetPrintableMetadata();
     }
 }

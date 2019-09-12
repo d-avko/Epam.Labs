@@ -7,18 +7,22 @@ import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class OrdersRepository {
 
     public OrdersRepository(){
+        Loader = new FileDataLoader<>();
         this.LoadOrders();
     }
 
-    private ArrayList<Order> Orders;
-    private FileDataLoader<ArrayList<Order>> Loader;
+    private List<Order> Orders;
+    private FileDataLoader<List<Order>> Loader;
 
-    public ArrayList<Order> getOrders() {
+    public List<Order> getOrders() {
         return Orders;
     }
 
@@ -29,14 +33,18 @@ public class OrdersRepository {
             .orElse(null);
     }
 
-    public Order[] Get(Comparator<Order> comparator){
-        return (Order[]) Orders.stream()
+    public List<Order> Get(Comparator<Order> comparator){
+        return Orders.stream()
                 .sorted(comparator)
-                .toArray();
+                .collect(Collectors.toList());
     }
 
     public void AddOrder(Order order){
         if(order == null){
+            throw new IllegalArgumentException();
+        }
+
+        if(this.Orders.indexOf(order) != -1){
             throw new IllegalArgumentException();
         }
 
@@ -59,6 +67,12 @@ public class OrdersRepository {
 
         this.Orders.set(index, order);
         this.SaveChanges();
+    }
+
+    public List<Order> SearchByCustomerName(String customerName){
+         return Orders.stream()
+                .filter(order -> order.getCustomer() != null && order.getCustomer().getName().contains(customerName))
+                .collect(Collectors.toList());
     }
 
     public void LoadOrders(){

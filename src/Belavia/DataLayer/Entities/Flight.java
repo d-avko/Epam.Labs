@@ -1,18 +1,20 @@
 package Belavia.DataLayer.Entities;
 
+import Belavia.BusinessLogic.IPrintable;
 import Belavia.DataLayer.Entities.AirPort;
 
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Date;
 
-public class Flight implements Comparable<Flight> {
+public class Flight implements Comparable<Flight>, IPrintable, Serializable {
     public Flight(AirPort from, AirPort to, Date departureDate, Date arrivalDate){
         this.From = from;
         this.To = to;
         this.DepartureDate = departureDate;
         this.ArrivalDate = arrivalDate;
     }
-    private int Id;
+
     private AirPort From;
     private AirPort To;
     private Date DepartureDate;
@@ -52,15 +54,18 @@ public class Flight implements Comparable<Flight> {
 
     @Override
     public int compareTo(Flight flight) {
-        return Comparator.comparing(Flight::getId)
-                .compare(this, flight);
+        return From.compareTo(flight.getFrom());
     }
 
-    public int getId() {
-        return Id;
+    @Override
+    public String GetPrintableMetadata() {
+        return " From: " + From.GetPrintableMetadata() + " To: " + To.GetPrintableMetadata()
+                + " DepartureDate: " + DepartureDate.toString()
+                + " ArrivalDate: " + ArrivalDate.toString();
     }
 
-    public void setId(int id) {
-        Id = id;
+    @Override
+    public String toString() {
+        return GetPrintableMetadata();
     }
 }
