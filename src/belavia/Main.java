@@ -1,7 +1,7 @@
-package Belavia;
+package belavia;
 
-import Belavia.DataLayer.Entities.*;
-import Belavia.DataLayer.OrdersRepository;
+import belavia.DataLayer.Entities.*;
+import belavia.DataLayer.OrdersRepository;
 
 import java.io.IOException;
 import java.io.InvalidObjectException;
@@ -12,7 +12,7 @@ import java.util.Date;
 public class Main {
 
     public static void main(String[] args) {
-        var repo = new OrdersRepository();
+        var repo = new OrdersRepository(true);
         var customer1 = new Customer("Vasily", "Pupkin", "+375291111111");
         var customer2 = new Customer("Kirill", "Andreev", "+375292222222");
         var minsk = new AirPort("MSQ", "National Airport Minsk");
@@ -38,35 +38,34 @@ public class Main {
         var testOrder1 = new Order(1, customer1, flight1, price1, baggage);
         var testOrder2 = new Order(2, customer2, flight2, price2, baggage);
 
-        try{
-            repo.AddOrder(testOrder1);
-            repo.AddOrder(testOrder2);
-        }
-        catch (IllegalArgumentException e){
+        try {
+            repo.addOrder(testOrder1);
+            repo.addOrder(testOrder2);
+        } catch (IllegalArgumentException e) {
             System.out.println("Failed to add order, since it exists already.");
         }
 
         var orders = repo.getOrders();
 
-        for(var order: orders){
-            System.out.println(order.GetPrintableMetadata());
+        for (var order : orders) {
+            System.out.println(order.getPrintableMetadata());
         }
 
         System.out.println("Changing customer of order1 to customer2");
         orders.get(0).setCustomer(customer2);
 
         try {
-            repo.Update(orders.get(0));
+            repo.update(orders.get(0));
         } catch (InvalidObjectException e) {
             e.printStackTrace();
         }
 
         System.out.println("Searching orders with customers containing 'Kir' in name: ");
 
-        var foundOrders = repo.SearchByCustomerName("Kir");
+        var foundOrders = repo.searchByCustomerName("Kir");
 
-        for(var order: foundOrders){
-            System.out.println(order.GetPrintableMetadata());
+        for (var order : foundOrders) {
+            System.out.println(order.getPrintableMetadata());
         }
 
         try {

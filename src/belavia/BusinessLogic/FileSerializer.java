@@ -1,18 +1,20 @@
-package Belavia.BusinessLogic;
+package belavia.BusinessLogic;
 
 import java.io.*;
 
 public class FileSerializer<T> {
-    public static String FilePath = "Orders.txt";
+    public static String filePath = "Orders.txt";
 
-    public void Save(String path, T object) throws IOException {
-        if(path == null){
-            path = FilePath;
+    public void save(String path, T object) throws IOException {
+        if (path == null) {
+            path = filePath;
         }
         var newFile = new File(path);
 
-        if(newFile.exists()){
+        if (newFile.exists()) {
             newFile.delete();
+            newFile.createNewFile();
+        } else {
             newFile.createNewFile();
         }
 
@@ -23,14 +25,14 @@ public class FileSerializer<T> {
         file.close();
     }
 
-    public T Load(String path) throws IOException, ClassNotFoundException {
-        if(path == null){
-            path = FilePath;
+    public T load(String path) throws IOException, ClassNotFoundException {
+        if (path == null) {
+            path = filePath;
         }
 
         var file = new File(path);
 
-        if(!file.exists()){
+        if (!file.exists()) {
             file.createNewFile();
             return null;
         }
