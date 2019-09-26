@@ -1,10 +1,14 @@
-package belavia.DataLayer.Entities;
+package belavia.dataLayer.entities;
 
-import belavia.BusinessLogic.IPrintable;
+import belavia.businessLogic.IPrintable;
 
 import java.io.Serializable;
 
 public class AirPort implements Comparable<AirPort>, IPrintable, Serializable {
+    public AirPort(){
+
+    }
+
     public AirPort(String code, String fullName) {
         this.code = code;
         this.fullName = fullName;

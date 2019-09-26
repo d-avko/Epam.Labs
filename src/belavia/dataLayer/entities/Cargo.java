@@ -1,10 +1,14 @@
-package belavia.DataLayer.Entities;
+package belavia.dataLayer.entities;
 
-import belavia.BusinessLogic.IPrintable;
+import belavia.businessLogic.IPrintable;
 
 import java.io.Serializable;
 
 public class Cargo implements IPrintable, Serializable {
+    public Cargo(){
+
+    }
+
     public Cargo(int weight, String name) {
         this.weight = weight;
         this.name = name;

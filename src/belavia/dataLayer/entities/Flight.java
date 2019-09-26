@@ -1,11 +1,15 @@
-package belavia.DataLayer.Entities;
+package belavia.dataLayer.entities;
 
-import belavia.BusinessLogic.IPrintable;
+import belavia.businessLogic.IPrintable;
 
 import java.io.Serializable;
 import java.util.Date;
 
 public class Flight implements Comparable<Flight>, IPrintable, Serializable {
+    public Flight(){
+
+    }
+
     public Flight(AirPort from, AirPort to, Date departureDate, Date arrivalDate) {
         this.from = from;
         this.to = to;

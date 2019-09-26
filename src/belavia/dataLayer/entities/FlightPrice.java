@@ -1,10 +1,13 @@
-package belavia.DataLayer.Entities;
+package belavia.dataLayer.entities;
 
-import belavia.BusinessLogic.IPrintable;
+import belavia.businessLogic.IPrintable;
 
 import java.io.Serializable;
 
 public class FlightPrice implements IPrintable, Serializable {
+    public FlightPrice() {
+
+    }
 
     public FlightPrice(double euroPrice, double bynPrice, double usdPrice) {
         this.usdPrice = usdPrice;

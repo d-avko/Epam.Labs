@@ -1,7 +1,7 @@
 package belavia;
 
-import belavia.DataLayer.Entities.*;
-import belavia.DataLayer.OrdersRepository;
+import belavia.dataLayer.entities.*;
+import belavia.dataLayer.OrdersRepository;
 
 import java.io.IOException;
 import java.io.InvalidObjectException;

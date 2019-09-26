@@ -1,11 +1,15 @@
-package belavia.DataLayer.Entities;
+package belavia.dataLayer.entities;
 
-import belavia.BusinessLogic.IPrintable;
+import belavia.businessLogic.IPrintable;
 
 import java.io.Serializable;
 import java.util.Comparator;
 
 public class Customer implements Comparable<Customer>, IPrintable, Serializable {
+    public Customer(){
+
+    }
+
     public Customer(String name, String surname, String phoneNumber) {
         this.name = name;
         this.surname = surname;

@@ -1,12 +1,16 @@
-package belavia.DataLayer.Entities;
+package belavia.dataLayer.entities;
 
-import belavia.BusinessLogic.IPrintable;
+import belavia.businessLogic.IPrintable;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Order implements Serializable, IPrintable {
+    public Order(){
+
+    }
+
     public Order(int id,
                  Customer customer,
                  Flight flight,

@@ -1,13 +1,14 @@
-package belavia.DataLayer;
+package belavia.dataLayer;
 
-import belavia.BusinessLogic.FileDataStore;
-import belavia.DataLayer.Entities.Order;
+import belavia.businessLogic.FileDataStore;
+import belavia.dataLayer.entities.Order;
 
 import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class OrdersRepository {
@@ -114,8 +115,18 @@ public class OrdersRepository {
                 .collect(Collectors.toList());
     }
 
-    public void loadOrders() {
-        if ((orders = loader.loadData()) == null) {
+    private void loadOrders() {
+        try{
+            orders = loader.loadData();
+        }
+        catch (IOException ex){
+            System.out.println("Catched IO exception while loading data. Exception class name: "
+                    + ex.getClass().getName());
+            orders = new ArrayList<>();
+        }
+        catch (ClassNotFoundException ex){
+            System.out.println("Catched ClassNotFoundException while loading data. Exception class name: "
+                    + ex.getClass().getName());
             orders = new ArrayList<>();
         }
     }

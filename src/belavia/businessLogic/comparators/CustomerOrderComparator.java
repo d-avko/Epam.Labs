@@ -1,6 +1,6 @@
-package belavia.BusinessLogic.Comparators;
+package belavia.businessLogic.comparators;
 
-import belavia.DataLayer.Entities.Order;
+import belavia.dataLayer.entities.Order;
 
 import java.util.Comparator;
 
