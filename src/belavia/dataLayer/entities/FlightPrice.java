@@ -52,4 +52,14 @@ public class FlightPrice implements IPrintable, Serializable {
     public String getPrintableMetadata() {
         return " EUR: " + euroPrice + " BYN: " + bynPrice + " USD: " + usdPrice;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

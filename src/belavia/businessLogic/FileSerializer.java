@@ -3,7 +3,7 @@ package belavia.businessLogic;
 import java.io.*;
 
 public class FileSerializer<T> {
-    public static String filePath = "Orders.txt";
+    public static final String filePath = "Orders.txt";
 
     /** Used to serialize an object of type T and write it to the file.
      *  Overwrites existing file or creates new one.
@@ -18,17 +18,21 @@ public class FileSerializer<T> {
         var newFile = new File(path);
 
         if (newFile.exists()) {
-            newFile.delete();
-            newFile.createNewFile();
-        } else {
-            newFile.createNewFile();
+
+            if(!newFile.delete()){
+                throw new IOException("Could not delete file because it was busy.");
+            }
+
         }
 
-        var file = new FileOutputStream(newFile);
-        var out = new ObjectOutputStream(file);
-        out.writeObject(object);
-        out.close();
-        file.close();
+        if(!newFile.createNewFile()){
+            throw new IOException("Could not create file: " + newFile.getName());
+        }
+
+        try(var file = new FileOutputStream(newFile);
+            var out = new ObjectOutputStream(file)){
+            out.writeObject(object);
+        }
     }
 
     /** Used to load serialized object from file
@@ -49,14 +53,9 @@ public class FileSerializer<T> {
             throw new FileNotFoundException();
         }
 
-        FileInputStream fileInputStream = new FileInputStream(file);
-        ObjectInputStream in = new ObjectInputStream(fileInputStream);
-
-        var result = (T) in.readObject();
-
-        in.close();
-        fileInputStream.close();
-
-        return result;
+        try(var fileInputStream = new FileInputStream(file);
+            var in = new ObjectInputStream(fileInputStream)){
+            return (T) in.readObject();
+        }
     }
 }

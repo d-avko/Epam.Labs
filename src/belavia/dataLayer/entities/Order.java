@@ -92,6 +92,10 @@ public class Order implements Serializable, IPrintable {
 
     @Override
     public boolean equals(Object obj) {
+        if(obj == null){
+            return false;
+        }
+
         if (!obj.getClass().getCanonicalName().equals(this.getClass().getCanonicalName())) {
             return false;
         }
@@ -125,5 +129,10 @@ public class Order implements Serializable, IPrintable {
                 this.timePlaced.toString() +
                 " Customer's cargo: " +
                 ((cargo.toString().equals("")) ? "Empty" : cargo.toString());
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 }

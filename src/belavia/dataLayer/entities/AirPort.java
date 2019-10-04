@@ -48,4 +48,14 @@ public class AirPort implements Comparable<AirPort>, IPrintable, Serializable {
     public String toString() {
         return getPrintableMetadata();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

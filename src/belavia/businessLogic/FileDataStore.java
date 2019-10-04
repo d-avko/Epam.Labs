@@ -17,7 +17,6 @@ public class FileDataStore<T> extends DataStore<T> {
         fileSerializer.save(null, newData);
     }
 
-
     /** Loads data from default file path, if the file exists.
      * @return Data
      * @throws IOException File was not found.

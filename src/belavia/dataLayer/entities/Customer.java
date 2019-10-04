@@ -65,4 +65,14 @@ public class Customer implements Comparable<Customer>, IPrintable, Serializable 
     public String toString() {
         return getPrintableMetadata();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }
