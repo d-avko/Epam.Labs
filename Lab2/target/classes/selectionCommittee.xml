@@ -1,0 +1,75 @@
+<SelectionCommitteeData>
+    <Applicants>
+        <applicant id="1">
+            <surname>Авко</surname>
+            <firstName>Денис</firstName>
+            <mobileNumber>375-29-2184851</mobileNumber>
+            <emailAddress>1@test.by</emailAddress>
+            <specialityId>1</specialityId>
+        </applicant>
+        <applicant id="2">
+            <surname>Комар</surname>
+            <firstName>Дмитрий</firstName>
+            <mobileNumber>375-29-1111111</mobileNumber>
+            <emailAddress>2@test.by</emailAddress>
+            <specialityId>1</specialityId>
+        </applicant>
+    </Applicants>
+    <ExamResults>
+        <examResult id="1">
+            <schoolCertificateScore>99</schoolCertificateScore>
+            <languageSubject>RUSSIAN</languageSubject>
+            <languageExamScore>99</languageExamScore>
+            <firstProfileSubject>MATHS</firstProfileSubject>
+            <firstProfileSubjectScore>99</firstProfileSubjectScore>
+            <secondProfileSubject>PHYSICS</secondProfileSubject>
+            <secondProfileSubjectScore>99</secondProfileSubjectScore>
+        </examResult>
+        <examResult id="2">
+            <schoolCertificateScore>99</schoolCertificateScore>
+            <languageSubject>BELORUSSIAN</languageSubject>
+            <languageExamScore>98</languageExamScore>
+            <firstProfileSubject>MATHS</firstProfileSubject>
+            <firstProfileSubjectScore>97</firstProfileSubjectScore>
+            <secondProfileSubject>PHYSICS</secondProfileSubject>
+            <secondProfileSubjectScore>99</secondProfileSubjectScore>
+        </examResult>
+        <examResult id="3">
+            <schoolCertificateScore>97</schoolCertificateScore>
+            <languageSubject>BELORUSSIAN</languageSubject>
+            <languageExamScore>97</languageExamScore>
+            <firstProfileSubject>MATHS</firstProfileSubject>
+            <firstProfileSubjectScore>99</firstProfileSubjectScore>
+            <secondProfileSubject>PHYSICS</secondProfileSubject>
+            <secondProfileSubjectScore>95</secondProfileSubjectScore>
+        </examResult>
+    </ExamResults>
+    <Universities>
+        <university id="1">
+            <fullName>Белорусский государственный университет информатики и радиоэлектроники</fullName>
+            <abbreviationName>БГУИР</abbreviationName>
+            <address>улица Петруся Бровки</address>
+            <phoneNumber>8-0172938815</phoneNumber>
+        </university>
+    </Universities>
+    <Faculties>
+        <faculty id="1">
+            <fullName>Компьютерных систем и сетей</fullName>
+            <abbreviationName>КСиС</abbreviationName>
+            <address>улица Гикало</address>
+            <phoneNumber>8-0172938815</phoneNumber>
+            <universityId>1</universityId>
+        </faculty>
+    </Faculties>
+    <Specialities>
+        <speciality id="1">
+            <fullName>Программное обеспечение информационных технологий</fullName>
+            <abbreviationName>ПОИТ</abbreviationName>
+            <specialityCode>40 01 01</specialityCode>
+            <firstProfileSubject>MATHS</firstProfileSubject>
+            <secondProfileSubject>PHYSICS</secondProfileSubject>
+            <placeCount>140</placeCount>
+            <facultyId>1</facultyId>
+        </speciality>
+    </Specialities>
+</SelectionCommitteeData>

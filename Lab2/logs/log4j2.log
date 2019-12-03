@@ -1,0 +1,35 @@
+2019-12-01 12:08:06,017 INFO by.bsu.wt_.Main [main] Start application...
+2019-12-01 12:08:06,159 ERROR by.bsu.wt_.ser.XSDValidator [main] Validation failed. cvc-complex-type.2.4.a: Invalid content was found starting with element 'firstProfileSubjct'. One of '{firstProfileSubject}' is expected.
+2019-12-01 12:08:06,160 ERROR by.bsu.wt_.Main [main] Validation failed: selectionCommittee.xml is NOT valid: cvc-complex-type.2.4.a: Invalid content was found starting with element 'firstProfileSubjct'. One of '{firstProfileSubject}' is expected.
+2019-12-01 12:10:01,481 INFO by.bsu.wt_.Main [main] Start application...
+2019-12-01 12:10:01,644 INFO by.bsu.wt_.ser.XSDValidator [main] Validation succeed.
+2019-12-01 12:10:01,676 INFO by.bsu.wt_.ser.MigrationService [main] Get migration service instance
+2019-12-01 12:10:05,904 ERROR by.bsu.wt_.Main [main] Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2019-12-01 12:23:08,361 INFO by.bsu.wt_.Main [main] Start application...
+2019-12-01 12:23:08,474 INFO by.bsu.wt_.ser.XSDValidator [main] Validation succeed.
+2019-12-01 12:23:08,505 INFO by.bsu.wt_.ser.MigrationService [main] Get migration service instance
+2019-12-01 12:23:09,378 ERROR by.bsu.wt_.ser.MigrationService [main] Cannot add or update a child row: a foreign key constraint fails (`selection_committee`.`examresults`, CONSTRAINT `examresults_ibfk_1` FOREIGN KEY (`applicantId`) REFERENCES `applicants` (`id`) ON DELETE CASCADE)
+2019-12-01 12:25:48,061 INFO by.bsu.wt_.Main [main] Start application...
+2019-12-01 12:25:48,187 INFO by.bsu.wt_.ser.XSDValidator [main] Validation succeed.
+2019-12-01 12:25:48,207 INFO by.bsu.wt_.ser.MigrationService [main] Get migration service instance
+2019-12-01 12:25:57,973 INFO by.bsu.wt_.ser.MigrationService [main] Entity with id=1 is already exists at table universities.
+2019-12-01 12:26:05,486 ERROR by.bsu.wt_.ser.MigrationService [main] Entity with id=1 is already exists at table specialities.
+2019-12-01 12:26:06,190 ERROR by.bsu.wt_.ser.MigrationService [main] Entity with id=1 is already exists at table specialities.
+2019-12-01 12:26:06,900 ERROR by.bsu.wt_.ser.MigrationService [main] Entity with id=1 is already exists at table applicants.
+2019-12-01 12:26:06,912 ERROR by.bsu.wt_.ser.MigrationService [main] Entity with id=2 is already exists at table applicants.
+2019-12-01 12:26:08,058 ERROR by.bsu.wt_.ser.MigrationService [main] Entity with id=1 is already exists at table examresults.
+2019-12-01 12:26:08,076 ERROR by.bsu.wt_.ser.MigrationService [main] Entity with id=2 is already exists at table examresults.
+2019-12-01 12:26:08,181 ERROR by.bsu.wt_.ser.MigrationService [main] Cannot add or update a child row: a foreign key constraint fails (`selection_committee`.`examresults`, CONSTRAINT `examresults_ibfk_1` FOREIGN KEY (`applicantId`) REFERENCES `applicants` (`id`) ON DELETE CASCADE)
+2019-12-01 12:26:47,218 INFO by.bsu.wt_.Main [main] Start application...
+2019-12-01 12:26:47,316 INFO by.bsu.wt_.ser.XSDValidator [main] Validation succeed.
+2019-12-01 12:26:47,333 INFO by.bsu.wt_.ser.MigrationService [main] Get migration service instance
+2019-12-01 12:26:57,220 INFO by.bsu.wt_.ser.MigrationService [main] Entity with id=1 is already exists at table universities.
+2019-12-01 12:26:59,940 ERROR by.bsu.wt_.ser.MigrationService [main] Entity with id=1 is already exists at table specialities.
+2019-12-01 12:27:01,629 ERROR by.bsu.wt_.ser.MigrationService [main] Entity with id=1 is already exists at table specialities.
+2019-12-01 12:27:02,515 ERROR by.bsu.wt_.ser.MigrationService [main] Entity with id=1 is already exists at table applicants.
+2019-12-01 12:27:02,532 ERROR by.bsu.wt_.ser.MigrationService [main] Entity with id=2 is already exists at table applicants.
+2019-12-01 12:27:03,334 ERROR by.bsu.wt_.ser.MigrationService [main] Entity with id=1 is already exists at table examresults.
+2019-12-01 12:27:03,358 ERROR by.bsu.wt_.ser.MigrationService [main] Entity with id=2 is already exists at table examresults.
+2019-12-01 12:27:03,482 ERROR by.bsu.wt_.ser.MigrationService [main] Cannot add or update a child row: a foreign key constraint fails (`selection_committee`.`examresults`, CONSTRAINT `examresults_ibfk_1` FOREIGN KEY (`applicantId`) REFERENCES `applicants` (`id`) ON DELETE CASCADE)
